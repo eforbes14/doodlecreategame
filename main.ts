@@ -140,6 +140,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             TileScale.Sixteen
         ))
     mySprite.setPosition(42, 124)
+    game.showLongText("This is Doodleville (working title), your town!", DialogLayout.Top)
 })
 let Player_Name = ""
 let mySprite: Sprite = null
