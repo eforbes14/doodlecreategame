@@ -114,41 +114,38 @@ d d d d d d d d d d d d d d d d
 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
 `
 }
-scene.onHitWall(SpriteKind.Player, function (sprite) {
-	
-})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    scene.cameraFollowSprite(mySprite)
     tiles.setTilemap(tiles.createTilemap(
-            hex`1000100005050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505040204020202020402040202040202040303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202`,
+            hex`1000100005050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050504020402020202040204020204020204030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202`,
             img`
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
 `,
             [myTiles.tile1,myTiles.tile0,myTiles.tile2,myTiles.tile3,myTiles.tile4,myTiles.tile5],
             TileScale.Sixteen
         ))
-    scene.cameraFollowSprite(mySprite)
+    mySprite.setPosition(42, 124)
 })
 let Player_Name = ""
 let mySprite: Sprite = null
 scene.setBackgroundColor(6)
 game.splash("DoodleCreate", "Press A to begin!")
 scene.setBackgroundColor(1)
-mySprite.setFlag(SpriteFlag.StayInScreen, true)
 mySprite = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
@@ -196,5 +193,4 @@ game.showLongText("What would you like them to be named?", DialogLayout.Top)
 game.showLongText(game.askForString(Player_Name), DialogLayout.Top)
 game.showLongText("What a lovely name!", DialogLayout.Top)
 game.showLongText("To move, press the arrow keys or wasd. After you are done figuring out the controls, press A", DialogLayout.Top)
-mySprite.setFlag(SpriteFlag.RelativeToCamera, true)
 controller.moveSprite(mySprite)
