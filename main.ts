@@ -114,6 +114,9 @@ d d d d d d d d d d d d d d d d
 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
 `
 }
+// You are really off to a great start!  I love the
+// sprites!  I like all of this!  Keep up the good
+// work!
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     scene.cameraFollowSprite(mySprite)
     tiles.setTilemap(tiles.createTilemap(
