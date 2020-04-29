@@ -1,3 +1,6 @@
+namespace SpriteKind {
+    export const trail = SpriteKind.create()
+}
 namespace myTiles {
     //% blockIdentity=images._tile
     export const tile1 = img`
@@ -118,6 +121,7 @@ d d d d d d d d d d d d d d d d
 // sprites!  I like all of this!  Keep up the good
 // work!
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    mySprite.setPosition(42, 124)
     scene.cameraFollowSprite(mySprite)
     tiles.setTilemap(tiles.createTilemap(
             hex`1000100005050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050504020402020202040204020204020204030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202`,
@@ -142,9 +146,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             [myTiles.tile1,myTiles.tile0,myTiles.tile2,myTiles.tile3,myTiles.tile4,myTiles.tile5],
             TileScale.Sixteen
         ))
-    mySprite.setPosition(42, 124)
     game.showLongText("This is Doodleville (working title), your town!", DialogLayout.Top)
 })
+let trail: Sprite = null
 let Player_Name = ""
 let mySprite: Sprite = null
 scene.setBackgroundColor(6)
@@ -198,3 +202,16 @@ game.showLongText(game.askForString(Player_Name), DialogLayout.Top)
 game.showLongText("What a lovely name!", DialogLayout.Top)
 game.showLongText("To move, press the arrow keys or wasd. After you are done figuring out the controls, press A", DialogLayout.Top)
 controller.moveSprite(mySprite)
+game.onUpdate(function () {
+    trail = sprites.create(img`
+f f f f f 
+f f f f f 
+f f f f f 
+f f f f f 
+f f f f f 
+`, SpriteKind.trail)
+    trail.follow(mySprite, 100)
+    if (trail.overlapsWith(mySprite)) {
+        trail.x += -5
+    }
+})

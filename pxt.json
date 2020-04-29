@@ -1,7 +1,9 @@
 {
     "name": "DoodleCreate",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "controller": "*",
+        "palette": "*"
     },
     "description": "",
     "files": [
