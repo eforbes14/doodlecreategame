@@ -121,6 +121,7 @@ d d d d d d d d d d d d d d d d
 // sprites!  I like all of this!  Keep up the good
 // work!
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    trail2.setPosition(42, 124)
     mySprite.setPosition(42, 124)
     scene.cameraFollowSprite(mySprite)
     tiles.setTilemap(tiles.createTilemap(
@@ -148,7 +149,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         ))
     game.showLongText("This is Doodleville (working title), your town!", DialogLayout.Top)
 })
-let trail: Sprite = null
+let trail2: Sprite = null
 let Player_Name = ""
 let mySprite: Sprite = null
 scene.setBackgroundColor(6)
@@ -203,15 +204,15 @@ game.showLongText("What a lovely name!", DialogLayout.Top)
 game.showLongText("To move, press the arrow keys or wasd. After you are done figuring out the controls, press A", DialogLayout.Top)
 controller.moveSprite(mySprite)
 game.onUpdate(function () {
-    trail = sprites.create(img`
+    trail2 = sprites.create(img`
 f f f f f 
 f f f f f 
 f f f f f 
 f f f f f 
 f f f f f 
 `, SpriteKind.trail)
-    trail.follow(mySprite, 100)
-    if (trail.overlapsWith(mySprite)) {
-        trail.x += -5
+    trail2.follow(mySprite, 100)
+    if (trail2.overlapsWith(mySprite)) {
+        trail2.x += -5
     }
 })
