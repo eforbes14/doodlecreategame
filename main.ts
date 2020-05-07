@@ -117,9 +117,6 @@ d d d d d d d d d d d d d d d d
 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
 `
 }
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    levels = []
-})
 // You are really off to a great start!  I love the
 // sprites!  I like all of this!  Keep up the good
 // work!
@@ -154,7 +151,6 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     game.showLongText("Villagers in town will often ask you for favors - drawing a small set of stairs, a building, or something else! Press B to begin!", DialogLayout.Top)
 })
 let trail2: Sprite = null
-let levels: number[] = []
 let Player_Name = ""
 let mySprite: Sprite = null
 scene.setBackgroundColor(6)
